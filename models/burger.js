@@ -1,10 +1,10 @@
 var orm = require("./config/orm.js");
 
-orm.selectAll('burgers');
+var burger = {
+    selectAll: orm.selectAll('burgers'),
+    insertOne: orm.insertOne('burgers','burger_name', 'devoured', name),
+    updateOne: orm.updateOne('burger_db.burgers','devoured','true',id)
+}
 
-orm.insertOne('burgers','burger_name', 'devoured', name);
 
-orm.updateOne('burger_db.burgers','devoured','true',id);
-
-
-module.exports = //config setup
+module.exports = burger;

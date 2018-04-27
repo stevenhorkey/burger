@@ -9,6 +9,7 @@ var PORT = process.env.PORT || 8080;
 app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(bodyParser.json());
 
 var exphbs = require("express-handlebars");
@@ -19,7 +20,6 @@ app.set("view engine", "handlebars");
 app.get("/", function(req, res) {
     
 });
-
 
 app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);

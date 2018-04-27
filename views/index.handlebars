@@ -5,7 +5,7 @@
 
                 <h1>Eat</h1>
 
-                <textarea rows="4" cols="50">
+                <textarea rows="4" cols="50" id="type-burger">
 
                 </textarea>
                 <br>
@@ -22,9 +22,15 @@
         <div class="row">
             <div class="col-sm-6 offset-sm-3 burger-items">
 
+                {{#each burgers}}
+                    <li>
+                        <p><span class="label">ID:</span> {{this.id}}</p>
+                        <p><span class="label">Burger:</span> {{this.burger}}</p>
+                    
+                        <button data-id="{{this.devour}}" class="devour-btn">Devour It!</button>
 
-
-                
+                    </li>
+                {{/each}}
 
             </div>
         </div>
