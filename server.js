@@ -17,9 +17,9 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.get("/", function(req, res) {
-    
-});
+var routes = require("./controllers/burgers_controller");
+
+app.use(routes);
 
 app.listen(PORT, function() {
     console.log("Server listening on: http://localhost:" + PORT);
