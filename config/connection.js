@@ -1,5 +1,7 @@
+// Requiring MySQL
 var mysql = require("mysql");
 
+// Setting up specific connection
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
@@ -8,6 +10,7 @@ var connection = mysql.createConnection({
   socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'  
 });
 
+// Establishing connection. If err, throw error, otherwise, console.log the connected id we are assigned
 connection.connect(function(err) {
   if (err) {
     console.error("error connecting: " + err.stack);
@@ -16,4 +19,5 @@ connection.connect(function(err) {
   console.log("connected as id " + connection.threadId);
 });
 
+// Export connection
 module.exports = connection;

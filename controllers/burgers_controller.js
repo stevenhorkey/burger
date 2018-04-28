@@ -1,10 +1,12 @@
+// Require express, path, and burger module
 var express = require('express');
-
 var burger = require('../models/burger.js');
-
-var router = express.Router();
 var path = require('path');
 
+// Set up express router
+var router = express.Router();
+
+// Defining paths
 router.get("/", function(req, res) {
     if (err) {
         return res.status(500).end();
@@ -17,5 +19,5 @@ router.get("/survey", function(req, res) {
 });
 
 
-
+// Exporting router.
 module.exports = router;

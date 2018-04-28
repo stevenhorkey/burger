@@ -21,17 +21,19 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 offset-sm-3 burger-items">
+                {{!-- For each burger row in burgers_db, create a list item with its id, its name, and its devour status --}}
+                <ul>
+                    {{#each burgers}}
+                        <li>
+                            
+                            <p><span class="label">ID:</span> {{this.id}}</p>
+                            <p><span class="label">Burger:</span> {{this.burger}}</p>
+                        
+                            <button data-id="{{this.devour}}" class="devour-btn">Devour It!</button>
 
-                {{#each burgers}}
-                    <li>
-                        <p><span class="label">ID:</span> {{this.id}}</p>
-                        <p><span class="label">Burger:</span> {{this.burger}}</p>
-                    
-                        <button data-id="{{this.devour}}" class="devour-btn">Devour It!</button>
-
-                    </li>
-                {{/each}}
-
+                        </li>
+                    {{/each}}
+                </ul>
             </div>
         </div>
     </div>
