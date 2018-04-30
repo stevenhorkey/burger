@@ -3,14 +3,14 @@
         <div class="row">
             <div class="col-sm-6 offset-sm-3">
 
-                <h1>Eat</h1>
+                <h1 class="app-title">Burgerish!</h1>
 
-                <textarea rows="4" cols="50" id="type-burger">
+                <input type="text" rows="4" id="type-burger">
 
-                </textarea>
+                </input>
                 <br>
                 <input type="submit" id="submit-burger">
-                <p>Enter the burger you want to eat and click the 'submit' button.</p>
+                <p>Enter the burger you want to eat and click the 'Submit' button.</p>
 
             </div>
         </div>
@@ -22,16 +22,23 @@
         <div class="row">
             <div class="col-sm-6 offset-sm-3 burger-items">
                 {{!-- For each burger row in burgers_db, create a list item with its id, its name, and its devour status --}}
+                <h2 class="burger-titles">Burgers Ready to Eat!</h2>
+
                 <ul>
                     {{#each burgers}}
-                        <li>
-                            
-                            <p><span class="label">ID:</span> {{this.id}}</p>
-                            <p><span class="label">Burger:</span> {{this.burger_name}}</p>
-                        
-                            <button data-id="{{id}}" class="devour-btn">Devour It!</button>
+                        {{#unless devoured}}
+                        {{> burgers/burger-block devoured=false}}
+                        {{/unless}}
+                    {{/each}}
+                </ul>
 
-                        </li>
+                <h2 class="burger-titles">Burgers Eaten</h2>
+
+                <ul>
+                    {{#each burgers}}
+                        {{#if devoured}}
+                        {{> burgers/burger-block devoured=true}}
+                        {{/if}}
                     {{/each}}
                 </ul>
             </div>
