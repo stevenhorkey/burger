@@ -4,36 +4,41 @@ var connection = require("./connection.js");
 // Defining orm object
 var orm = {
     // Select all data from table specified.
-    selectAll: function(table) {
+    selectAll: function(table, cb) {
       var queryString = "SELECT * FROM ??";
       connection.query(queryString, [table], function(err, result) {
         if (err) throw err;
+        console.log(result);
         cb(result);
       });
     },
     // Insert row into database with specified data
-    insertOne: function(table, col_one,col_two, val_one, val_two) {
+    insertOne: function(table, col_one,col_two, val_one, val_two, cb) {
       var queryString = "INSERT INTO ?? (??,??) VALUES (?,?)";
       connection.query(queryString, [table, col_one,col_two, val_one, val_two], function(err, result) {
         if (err) throw err;
-
+        console.log(result);
         cb(result);
         
       });
     },
     // Update column in row at specified parameter location
-    updateOne: function(table,col_one,val_one,col_key,val_key) {
-      var queryString =
-        "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-  
-      connection.query(
-        queryString,
-        [table,col_one,val_one,col_key,val_key],
-        function(err, result) {
-          if (err) throw err;
-          console.log(result);
-          cb(result);
-      });
+    updateOne: function(table, objColVals, condition, cb) {
+      var queryString = "UPDATE " + table;
+
+      queryString += " SET ";
+      queryString += objToSql(objColVals);
+      queryString += " WHERE ";
+      queryString += condition;
+
+      console.log(queryString);
+      connection.query(queryString, function(err, result) {
+        if (err) {
+          throw err;
+        }
+        console.log(result)
+        cb(result);
+    });
     }
 };
 

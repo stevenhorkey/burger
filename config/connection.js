@@ -5,6 +5,7 @@ var mysql = require("mysql");
 var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
+  port: 8889,
   password: "root",
   database: "burgers_db",
   socketPath: '/Applications/MAMP/tmp/mysql/mysql.sock'  
