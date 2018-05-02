@@ -1,8 +1,36 @@
-body{
+*{
+    margin: 20px 0 0 0;
+    border-radius: 10px;
+    font-family: 'Titan One', cursive;
+  }
+  body{
     background-color: orange;
     text-align: center;
-}
+  }
 
-.home-body{
+  .home-body{
     text-align: center;
-}
+  }
+  ul{
+    list-style: none;
+    padding: 0;
+  }
+  [type=text]{
+    width: 280px;
+    margin: 20px 0;
+    padding: 3px;
+  }
+  [type=submit]{
+    margin-bottom: 20px;
+  }
+  button{
+    border-radius: 10px;
+  }
+  .app-title{
+    font-style: italic;
+    font-size: 50px;
+  }
+  .burger-titles{
+    background-color: rgb(226, 226, 226);
+    padding: 10px;
+  }

@@ -6,89 +6,14 @@
   <!-- Bootstrap -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Titan+One" rel="stylesheet">
-  <link rel="stylesheet" type="text/style" href="/public/assets/css/burger_style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/burger_style.css">
   <!-- JQuery -->
   <script src="https://code.jquery.com/jquery.js"></script>
   <!-- Bootstrap JS -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-  <script src="/public/assets/js/site.js"></script>
-  <style>
-      *{
-        margin: 20px 0 0 0;
-        border-radius: 10px;
-        font-family: 'Titan One', cursive;
-      }
-      body{
-        background-color: orange;
-        text-align: center;
-      }
-
-      .home-body{
-        text-align: center;
-      }
-      ul{
-        list-style: none;
-        padding: 0;
-      }
-      [type=text]{
-        width: 280px;
-        margin: 20px 0;
-        padding: 3px;
-      }
-      [type=submit]{
-        margin-bottom: 20px;
-      }
-      button{
-        border-radius: 10px;
-      }
-      .app-title{
-        font-style: italic;
-        font-size: 50px;
-      }
-      .burger-titles{
-        background-color: rgb(226, 226, 226);
-        padding: 10px;
-      }
-  </style>
+  <script src="/assets/js/site.js"></script>
 </head>
 <body>
   {{{ body }}}
-
-<script>
-  $('#submit-burger').one('click',function(event){
-        event.preventDefault();
-        var newBurger = {
-            burger_name: $('#type-burger').val().trim(),
-            devoured : false
-        }
-        $.ajax('/api/burgers',{
-        type:'POST',
-        data: newBurger
-        }).then(
-        function(){
-          console.log('created new burger');
-    
-          location.reload();
-        });
-    })
-    
-    $('.devour-btn').one('click',function(event){
-        var id = $(this).data('id');
-
-        var newDevour = {
-          devoured: true
-        };
-        console.log(id);
-        
-        $.ajax('/api/burgers/'+id,{
-          type: 'PUT',
-          data: newDevour
-        }).then(
-          function(){
-            console.log('devoured',id);
-            location.reload();
-          });
-    });
-</script>
 </body>
 </html>

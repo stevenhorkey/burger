@@ -13,8 +13,6 @@ var PORT = process.env.PORT || 8080;
 // Set default directory to public
 app.use(express.static("public"));
 
-app.use('/js',express.static(path.join(__dirname, 'public/assets/js')));
-app.use('/css',express.static(path.join(__dirname, 'public/assets/css')));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
